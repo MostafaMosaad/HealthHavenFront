@@ -21,7 +21,7 @@ import axios from 'axios';
 
 
 const theme = createTheme();
-const API_URL = 'http://localhost:3000/api/signup';
+const API_URL = 'https://healthhaven.onrender.com/api/signup';
 
 export default function SignUpUser() {
   const navigate = useNavigate();
