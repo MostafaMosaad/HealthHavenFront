@@ -1,0 +1,33 @@
+#loginContanier{
+    margin: 0 auto;
+    margin-top: 7rem;
+    background-color: white;
+    width: 80%;
+    margin-bottom: 7rem;
+}
+
+#subBtn{
+    background-color: red;
+}
+#loginDiv{
+    background-color: rgb(56, 108, 252);
+    width: 100%;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}
+hr{
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    font-size: larger;
+}
+.SignupLink{
+    color: rgb(62, 62, 249) ;
+    text-decoration-color: red;
+    margin-left: 4rem;
+}
+.newuser{
+    color: rgb(115, 114, 114);
+}

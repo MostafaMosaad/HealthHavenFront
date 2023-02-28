@@ -1,0 +1,31 @@
+#mainNavBar{
+    background-color: rgb(56, 108, 252);
+}
+.nav-link{
+    color: white;
+    margin-left: 5rem;
+ 
+}
+a:hover{
+    text-decoration:  none;
+}
+span :hover{
+    color: red;  
+}
+.icones{
+    font-size: large;
+    font-weight: 600;
+    color: white;
+}
+#languageID{
+    margin-right: 4rem;
+    font-size: xx-large;
+}
+#languageID :hover{
+ color: red;
+}
+
+.nav-link :hover {
+  color:  red;
+  text-decoration: underline;
+}
