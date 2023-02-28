@@ -79,9 +79,9 @@ if(val===true){
   .then((res) => {
     if(res.status===201){
       setData ("Added successfully")
-      setTimeout(()=>{
+      
         navigate('/login')
-      },5000)
+
     }
   })
   .catch((err) => {
