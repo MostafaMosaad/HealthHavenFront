@@ -16,7 +16,7 @@ import React, { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { Link } from 'react-router-dom';
 
-const API_URL = 'http://localhost:3000/api/login';
+const API_URL = 'https://healthhaven.onrender.com/api/login';
 
 const theme = createTheme();
 
