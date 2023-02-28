@@ -32,7 +32,7 @@ function getCookie(name) {
   }
 const myCookie = getCookie('accessToken');
 const token = myCookie;
-const API_URL = 'http://localhost:3000/api/users/getMe';
+const API_URL = 'https://healthhaven.onrender.com/api/users/getMe';
 function Details() {
     const [data, setData] = useState({});
     useEffect(() => {
