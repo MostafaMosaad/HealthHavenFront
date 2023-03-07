@@ -1,0 +1,34 @@
+.signUpCards{
+    display:  flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+img{
+    width: 100px;
+    height: 200px;
+}
+.cardbtnboth{
+    background:#24326c;
+    color:  white;
+    border: none;
+    border-radius: 5px;
+     width: 30%;
+     height: 20%;
+     margin-top: 1rem;
+     font-size: 1rem;
+     font-weight: 500;
+}    
+@keyframes anim 
+        {
+            50% 
+            {
+              box-shadow: 1px 1px 20px 1px red;
+            } 
+        }
+        .fullCard:hover
+        {
+            animation: anim 4s  infinite;
+        }
+.fullCard{
+    border-color: #040467;
+}

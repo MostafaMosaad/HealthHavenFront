@@ -1,0 +1,8 @@
+#im{
+    filter: brightness(90%);
+    /* filter:blur(1px); */
+    height:70% ;
+    margin-top: 10rem;
+    width:80%;
+    border-radius: 15px;
+}
