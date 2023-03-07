@@ -1,0 +1,6 @@
+*{
+    height: fit-content;
+}
+textarea.form-control {
+    resize: none;
+  }

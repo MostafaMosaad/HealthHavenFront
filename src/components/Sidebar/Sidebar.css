@@ -1,0 +1,13 @@
+#listitems{
+    list-style: none;
+     text-align: left;
+}
+#listitems :hover{
+    color:  red;
+}
+#realNavBar{
+    padding: 0.5rem 0;
+    background-color: #20154f;
+    border-radius: 13px;
+    margin-top: 15rem;
+}

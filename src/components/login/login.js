@@ -1,165 +1,95 @@
-import Avatar from '@mui/material/Avatar';
-import './login.css'
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import axios from 'axios';
-import { useNavigate} from 'react-router-dom'
-import React, { useState } from 'react';
-import Alert from 'react-bootstrap/Alert';
-import { Link } from 'react-router-dom';
-
-const API_URL = 'https://healthhaven.onrender.com/api/login';
-
-const theme = createTheme();
+import "./login.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import Alert from "react-bootstrap/Alert";
+import { Link } from "react-router-dom";
+import { authContext } from "../../context/loginContext";
+const API_URL = "http://localhost:3000/api/login";
 
 export default function Login() {
   const navigate = useNavigate();
+  const authCtx = useContext(authContext);
   const [data, setData] = useState();
+  function validation(email, password) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validation (email,password){
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-if(emailPattern.test(email)){
-  if (password.length >= 8){
-    return true
-
-  }else return "pass must be at least 8 chars"
-
-}else return "invalid email"
-}
+    if (emailPattern.test(email)) {
+      if (password.length >= 8) {
+        return true;
+      } else return "pass must be at least 8 chars";
+    } else return "invalid email";
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-   let val=validation(data.get('email'),data.get('password'))
-    if(val===true){
-      axios
-      .post(API_URL, {
-        email: data.get('email'),
-        password: data.get('password'),
-      })
-      .then((res) => {
-        if(res.status===401){
-          setData("invalid mail or password :)")
-
   
-        }else if(res.status===200)
-          
-          console.log(res.data)
-  const d = new Date();
-  d.setTime(d.getTime() + (90*24*60*60*1000));
-  let expires = "expires="+ d.toUTCString();
-  document.cookie = "accessToken =" + res.data.token + ";" + expires + ";path=/";
-  navigate('/homeUser')
-        
-      })
-      .catch((err) => {
-        setData("invalid mail or password :)")
+    let val = validation(data.get("email"), data.get("password"));
+    if (val === true) {
+      axios
+        .post(API_URL, {
+          email: data.get("email"),
+          password: data.get("password"),
+        })
+        .then((res) => {
+          if (res.status === 401) {
+            setData("invalid mail or password :)");
+          } else if (res.status === 200)
+            if (!res.data.token) {
+              // console.log(res.data)
 
-        console.error(err);
-      });
+              setData(" Not verfied yet");
+            } else if (
+              res.data.dataUser === "user" ||
+              res.data.dataUser === "User"
+            ) {
+              authCtx.login(res.data.token, "user");
+              navigate("/homeUser/MyProfile");
+            } else if (res.data.dataUser === "Admin") {
+              authCtx.login(res.data.token, "admin");
+              navigate("/admin");
+            } else if (res.data.dataUser === "Doctor") {
+              authCtx.login(res.data.token, "doctor");
+              navigate("/homeDoctor/MyProfile");
+            }
+        })
+        .catch((err) => {
+          setData(" mail or password may be wrong :(");
 
-    }else{
+          console.error(err);
+        });
+    } else {
       setData(val);
-     
-     console.log(val) 
+
     }
-
-
-
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box 
-        id='loginContanier'
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <div id='loginDiv'> Login</div>
-          <Avatar sx={{ m: 1, bgcolor: 'rgb(56, 108, 252)' }}>
-            {/* <LockOutlinedIcon /> */}
-          </Avatar>
-          <Box component="form" onSubmit={handleSubmit} Validate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required 
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-
-            <Button
-             id='subBtn'
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Login
-            </Button>
-            <Grid container>
-            <Grid item xs>
-              <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-              </Grid>
-              <Grid item >
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-            </Grid>
-            <hr></hr>
-            <Grid container>
-              <Grid item>
-                <Typography className=''> New User ?</Typography>
-              </Grid>
-               
-              <Grid item xs >
-                <Link to ="/signupUser" className='SignupLink' variant="body2">
-                  Sign Up
-                </Link>
-              </Grid>
-            </Grid>
-          </Box>
-        </Box>
-        {data&&<Alert variant={'danger'}>{data}</Alert>}
-      </Container>
-    </ThemeProvider>
+    <>
+    <div className="d-flex justify-content-evenly flex-wrap">
+      <img src={process.env.PUBLIC_URL + "/Imges/Login.jpg"} id="loginImg"  className=' col-xxl-3 col-xl-3  col-lg-3 col-md-8  col-sm-10 col-10' />
+      <div id="formDiv" className="  col-xxl-5 col-xl-5   col-lg-5 col-md-8  col-sm-10 col-10" >
+        <form onSubmit={handleSubmit} id="FormLogin">
+          <input
+            type="email"
+            placeholder="Enter Your email"
+            name="email"
+            id="email"
+          />
+          <input
+            type="password"
+            placeholder="Enter Your password"
+            name="password"
+            id="password"
+          />
+          <input type="submit" value="Login" id="subBtn"></input>
+          {data && <Alert variant={"danger"}>{data}</Alert>}
+        </form>
+        <hr></hr>
+        <div><h5 id="h5Text">Don't have  an account ? <Link to="/signup"><span id='regSpan'>Register</span></Link></h5></div>
+      </div>{" "}
+    </div>
+</>
   );
 }
-
-            
