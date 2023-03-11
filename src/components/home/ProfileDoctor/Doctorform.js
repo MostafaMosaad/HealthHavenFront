@@ -79,7 +79,7 @@ useEffect(() => {
                  name="category">{data.category}</lable>
           </div>
           <div className="mb-2 d-flex" id='d1'>
-            <label htmlFor="exampleInputCategoryDoc" className="labelsDoc">Category{" "} </label>
+            <label htmlFor="exampleInputCategoryDoc" className="labelsDoc">Major{" "} </label>
             <lable className="formInputDoc" id="exampleInputCategoryDoc"
                  name="category">{data.major}</lable>
           </div>
