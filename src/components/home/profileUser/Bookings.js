@@ -72,8 +72,7 @@ function Bookings() {
     <StarRating DoctorsId={doctorData.id}></StarRating>
   )
 }
-{
-  formattedToday === doctorData.date && (
+
             <Button
               onClick={() => {
                 const Cancel = async () => {
@@ -99,8 +98,8 @@ function Bookings() {
               {" "}
               Cancel Book
             </Button>
-  )
-}
+  
+
           </div>
         </div>
         )
