@@ -45,7 +45,7 @@ const Main = () => {
           <img
 
             className="d-block allimgs"
-            src="./Lab.jpg"
+            src="/Imges/Labs.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
