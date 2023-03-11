@@ -2,6 +2,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import StarRating from "./../../Rating/RatingStar";
 import { Button } from "react-bootstrap";
+
+const today = new Date();
+const yyyy = today.getFullYear();
+let mm = today.getMonth() + 1; // Months start at 0!
+let dd = today.getDate();
+
+if (dd < 10) dd = '0' + dd;
+if (mm < 10) mm = '0' + mm;
+
+const formattedToday = dd + '/' + mm + '/' + yyyy;
+
 function Bookings() {
   const API_URL = "/users/getMe";
   const [token] = useState(localStorage.getItem("userToken"));
@@ -21,7 +32,9 @@ function Bookings() {
   const userBookings = data.bookings || [];
   return (
     <>
-      {userBookings?.map((doctorData) => (
+      {
+      userBookings?.map((doctorData) => {
+        return(
         <div
           className="card "
           style={{ width: " 18rem", marginTop: "6rem", marginLeft: "1rem" }}
@@ -54,8 +67,13 @@ function Bookings() {
               </span>{" "}
               {doctorData.time}
             </div>
-
-            <StarRating DoctorsId={doctorData.id}></StarRating>
+            {
+  formattedToday !== doctorData.date && (
+    <StarRating DoctorsId={doctorData.id}></StarRating>
+  )
+}
+{
+  formattedToday === doctorData.date && (
             <Button
               onClick={() => {
                 const Cancel = async () => {
@@ -81,9 +99,14 @@ function Bookings() {
               {" "}
               Cancel Book
             </Button>
+  )
+}
           </div>
         </div>
-      ))}
+        )
+})
+    
+      }
     </>
   );
 }
