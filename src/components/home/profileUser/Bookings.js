@@ -29,7 +29,7 @@ function Bookings() {
         >
           <img
             className="card-img-top"
-           src="/Imges/history.png"
+           src="/Imges/appoint.png"
             style={{ filter: "brightness(80%)" }}
 
           />
