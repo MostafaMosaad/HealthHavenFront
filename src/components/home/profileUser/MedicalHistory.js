@@ -26,7 +26,7 @@ function Medical() {
           <Card className="h-100">
             <Card.Img
               variant="top"
-              src={process.env.PUBLIC_URL + "/Imges/history.png"}
+              src="/Imges/history.png"
               style={{ filter: "brightness(80%)", height: "20rem" }}
             />
             <Card.Body>
