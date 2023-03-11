@@ -107,7 +107,7 @@ function Doctors() {
       {filter.map((doctor) => (
         <div className="card m-5" style={{ width: " 18rem"}}>
           <img
-            src={process.env.PUBLIC_URL + "/Imges/DoctorCard.png"}
+            src="/Imges/DoctorCard.png"
             className="card-img-top"
             style={{ filter: "brightness(80%)" }}
           />
