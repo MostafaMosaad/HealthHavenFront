@@ -45,7 +45,7 @@ const Main = () => {
           <img
 
             className="d-block allimgs"
-            src={`${process.env.PUBLIC_URL}/Imges/lab.jpg`}
+src="/Imges/labs.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -56,7 +56,7 @@ const Main = () => {
           <img
 
             className="d-block allimgs "
-            src="/Imges/lab.jpg"
+src="/Imges/lab.jpg"
             alt="Second slide"
           />
           <Carousel.Caption>
@@ -68,7 +68,7 @@ const Main = () => {
           <img
 
             className="d-block allimgs"
-            src={process.env.PUBLIC_URL + "/Imges/hospitals.jpg"}
+src="/Imges/hospitals.jpg"
             alt="Third slide"
           />
           <div>
