@@ -1,0 +1,66 @@
+#formDiv{
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    padding-top: 16rem;
+    height: 50%;
+}
+#email ,#password{
+    color:  #20154f;
+    font-family: 'Noto Sans', sans-serif;
+    font-style: italic;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #20154f;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+}
+#subBtn{
+  background-color: #20154f;
+   width: 100%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-style: italic;
+  font-size: medium;
+}
+#loginImg{
+
+    padding-top: 14rem;
+    height: 50%;
+}
+hr{
+    height: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #20154f;
+    font-size: larger;
+}
+#subBtn:hover{
+    background-color: #fe4c40;
+ }
+ ::placeholder{
+    font-family: 'Noto Sans', sans-serif;
+    color: #20154f
+}
+#regSpan{
+    color:#fe4c40 ;
+    font-style: italic;
+}
+#regSpan:hover{
+    color:#20154f ;
+}
+a{
+    text-decoration: none;
+}
+#h5Text{
+    font-family: 'Noto Sans', sans-serif;
+    color:#20154f ;
+    font-style: italic;
+}
