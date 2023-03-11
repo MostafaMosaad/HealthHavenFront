@@ -28,9 +28,9 @@ function Bookings() {
           key={doctorData.doctorName}
         >
           <img
-            src="/Imges/appoint.png"
             className="card-img-top"
-            style={{ filter: "brightness(80%)" }}
+            src="/Imges/appoint.png"
+
           />
           <div className="card-body">
             <h4 className="card-title">{doctorData.doctorName}</h4>
