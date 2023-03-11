@@ -45,7 +45,7 @@ const Main = () => {
           <img
 
             className="d-block allimgs"
-            src={process.env.PUBLIC_URL + '/Imges/lab.jpg'}
+            src={`${process.env.PUBLIC_URL}/Imges/lab.jpg`}
             alt="First slide"
           />
           <Carousel.Caption>
