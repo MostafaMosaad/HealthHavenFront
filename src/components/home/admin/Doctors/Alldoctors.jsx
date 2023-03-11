@@ -60,7 +60,7 @@ const AllDoc = () => {
                   <div className="mb-2"><strong>Category:</strong> {doc.category}</div>
                   <div className="mb-2"><strong>isVerified:</strong> {doc.isVerifired.toString()}</div>
                   <div className="mb-2"><span>AvarageRate</span>  <AvergeRating DoctorsId={doc._id}></AvergeRating></div>
-                  <div className="mb-2"><span>Rate</span><StarRating DoctorsId={doc._id}></StarRating></div>
+                  
 
                   </Card.Text>
                   <div className="card-buttons ">
