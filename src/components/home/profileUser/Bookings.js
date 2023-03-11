@@ -28,7 +28,7 @@ function Bookings() {
           key={doctorData.doctorName}
         >
           <img
-            src={process.env.PUBLIC_URL + "/Imges/appoint.png"}
+            src="/Imges/appoint.png"
             className="card-img-top"
             style={{ filter: "brightness(80%)" }}
           />
