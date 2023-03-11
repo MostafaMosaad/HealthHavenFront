@@ -25,7 +25,7 @@ const Admin = () => {
     const [activeSlice, setActiveSlice] =useState(null);
 
     const [token] = useState(localStorage.getItem("userToken"));
-    const API_URL = "/api";
+    const API_URL = "";
     const dataa = [
         { category: 'Skin', value: numSkin },
         { category: 'Teeth', value: numTeeth },
