@@ -46,9 +46,10 @@ const Medical = () => {
           <Card key={index} className="m-3">
             <Card.Body>
               <Card.Title>Medical History {index + 1}</Card.Title>
-              <Card.Text> patient's state : {medical.Discriptions}</Card.Text>
+              <Card.Text> Patient's state : {medical.Discriptions}</Card.Text>
               <Card.Text> Labs: {medical.Labs}</Card.Text>
               <Card.Text>Pharamacies : {medical.Pharmacies}</Card.Text>
+              <Card.Text>Doctor : {medical.DocName}</Card.Text>
 
 
             </Card.Body>
