@@ -37,10 +37,10 @@ const Admin = () => {
 
       ];
       const data2 = [
-        { x: 'prof', y: numProf },
-        { x: 'lec', y: numLec },
-        { x: 'cons', y: numCons },
-        { x: 'spec', y: numSpec },
+        { x: 'Professor', y: numProf },
+        { x: 'Lecturer', y: numLec },
+        { x: 'Consultant', y: numCons },
+        { x: 'Specialist', y: numSpec },
       ];
       
       
