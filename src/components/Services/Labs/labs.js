@@ -1,15 +1,18 @@
-import React from "react";
+mport React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Container, Row } from "react-bootstrap";
 
 // Import Swiper styles
+import style from './labs.module.css';
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 // import required modules
-import { Pagination, FreeMode, Navigation } from "swiper";
-import style from './labs.module.css';
+
+import  SwiperCore,{ Pagination, FreeMode, Autoplay, Navigation } from "swiper";
+
+SwiperCore.use([Pagination, FreeMode, Autoplay, Navigation]);
 
 export default function Labs() {
     const labs = [
@@ -69,13 +72,27 @@ export default function Labs() {
           </Row>
           <Row>
           <Swiper
-        slidesPerView={5}
-        spaceBetween={50}
+        slidesPerView={4}
+        spaceBetween={60}
         freeMode={true}
-        modules={[Pagination, FreeMode, Navigation]}
+        autoplay={{ delay: 3000 }}
+        modules={[Pagination, FreeMode,Autoplay, Navigation]}
         pagination={{ clickable: true }}
         navigation
-      
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 40
+          }
+        }}
       >
         {labs.map((lab) => (
           <SwiperSlide key={lab.id}>
