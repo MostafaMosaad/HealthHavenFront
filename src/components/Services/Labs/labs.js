@@ -1,4 +1,4 @@
-mport React from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Container, Row } from "react-bootstrap";
 
