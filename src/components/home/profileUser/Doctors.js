@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import AvergeRating from "../../Rating/AvarageRating";
-import './Doc.css'
+import "./Doc.css";
+const Swal = require('sweetalert2')
 
 function Doctors() {
   const API_URL2 = "/doctors";
@@ -20,40 +21,55 @@ function Doctors() {
 
   const handleSubmit = (event, doctor) => {
     const time = event.target.value;
-    console.log(time)
     const availableTimes = bookingTimes[doctor._id] || [];
-    console.log(availableTimes)
-    if (availableTimes.includes(time)) {
-      axios.patch(
-        `/users/booking`,
-        {
-          doctor: doctor._id,
-          time: time
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
-      ).then(() => {
-        setBookingTimes({
-          ...bookingTimes,
-          [doctor._id]: availableTimes.filter((t) => t !== time)
-          
-        });
-        console.log(bookingTimes)
-      }).catch((error) => {
-        alert(error.response.data.message);
-      });
-    } else {
-      alert("This time is not available, please choose another time");
-    }
+    Swal.fire({
+      title: "Confirm Book?",
+      showDenyButton: true,
+      // showCancelButton: true,
+      confirmButtonText: "Yes",
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (availableTimes.includes(time)) {
+          axios
+            .patch(
+              `/users/booking`,
+              {
+                doctor: doctor._id,
+                time: time,
+              },
+              { headers: { Authorization: `Bearer ${token}` } }
+            )
+            .then(() => {
+              setBookingTimes({
+                ...bookingTimes,
+                [doctor._id]: availableTimes.filter((t) => t !== time),
+              });
+              console.log(bookingTimes);
+            })
+            .catch((error) => {
+              alert(error.response.data.message);
+            });
+        } else {
+          alert("This time is not available, please choose another time");
+        }
+        Swal.fire("Done!", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Cancel", "", "");
+      }
+    });
   };
 
   const AddFilter = (category) => {
     if (category === "All") {
       return doctorarray;
     } else {
-      let filteredDoctors = doctorarray.filter(doctor => doctor.category === category);
+      let filteredDoctors = doctorarray.filter(
+        (doctor) => doctor.category === category
+      );
       return filteredDoctors;
     }
-  }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +84,7 @@ function Doctors() {
           "8:00 pm",
           "8:30 pm",
           "9:00pm",
-          "9:30 pm"
+          "9:30 pm",
         ];
       });
       setBookingTimes(times);
@@ -105,7 +121,7 @@ function Doctors() {
       </select>
 
       {filter.map((doctor) => (
-        <div className="card m-5" style={{ width: " 18rem"}}>
+        <div className="card m-5" style={{ width: " 18rem" }}>
           <img
             src="/Imges/DoctorCard.png"
             className="card-img-top"
@@ -139,5 +155,3 @@ function Doctors() {
 }
 
 export default Doctors;
-
-
