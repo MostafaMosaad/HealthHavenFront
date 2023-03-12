@@ -5,16 +5,17 @@ import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { RxUpdate } from "react-icons/rx";
 import { BiShow } from "react-icons/bi";
-import { Card, Button, Row, Col, Container } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Alldoctors.css'
+import { Card, Button, Row, Col, Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Alldoctors.css";
 import AvergeRating from "../../../Rating/AvarageRating";
 import StarRating from "../../../Rating/RatingStar";
+const Swal = require('sweetalert2')
 
 const AllDoc = () => {
   const navigate = useNavigate();
-  const [token,SetToken] = useState(localStorage.getItem("userToken"));
-  const [deletedoc,SetDelete]=useState()
+  const [token, SetToken] = useState(localStorage.getItem("userToken"));
+  const [deletedoc, SetDelete] = useState();
 
   const [data, setData] = useState();
   const API_URL = "/doctors/admindoc";
@@ -38,13 +39,12 @@ const AllDoc = () => {
   return (
     <>
       <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
 
       <Container className="my-5">
-     
         <h1 className="admin-title mb-5 mt-2">All Doctors ({docs.length})</h1>
         <Row xs={1} md={2} lg={3} className="g-4">
           {docs?.map((doc) => (
@@ -52,16 +52,29 @@ const AllDoc = () => {
               <Card className="h-100 patient-card">
                 <Card.Body>
                   <Card.Title>{doc.name}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">{doc.email}</Card.Subtitle>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {doc.email}
+                  </Card.Subtitle>
                   <Card.Text>
-                  <div className="mt-4 mb-2 "><strong>Phone:</strong> {doc.phone}</div>
-                  <div className="mb-2"><strong>Address:</strong> {doc.address}</div>
-                  <div className="mb-2"><strong>Major:</strong> {doc.major}</div>
-                  <div className="mb-2"><strong>Category:</strong> {doc.category}</div>
-                  <div className="mb-2"><strong>isVerified:</strong> {doc.isVerifired.toString()}</div>
-                  <div className="mb-2"><span>AvarageRate</span>  <AvergeRating DoctorsId={doc._id}></AvergeRating></div>
-                  
-
+                    <div className="mt-4 mb-2 ">
+                      <strong>Phone:</strong> {doc.phone}
+                    </div>
+                    <div className="mb-2">
+                      <strong>Address:</strong> {doc.address}
+                    </div>
+                    <div className="mb-2">
+                      <strong>Major:</strong> {doc.major}
+                    </div>
+                    <div className="mb-2">
+                      <strong>Category:</strong> {doc.category}
+                    </div>
+                    <div className="mb-2">
+                      <strong>isVerified:</strong> {doc.isVerifired.toString()}
+                    </div>
+                    <div className="mb-2">
+                      <span>AvarageRate</span>{" "}
+                      <AvergeRating DoctorsId={doc._id}></AvergeRating>
+                    </div>
                   </Card.Text>
                   <div className="card-buttons ">
                     <Button
@@ -86,18 +99,50 @@ const AllDoc = () => {
                       variant="danger"
                       className="w-75 mb-2 m-auto"
                       onClick={() => {
-                        axios.delete(`/doctors/${doc._id}`, {
-                          headers: { Authorization: `Bearer ${token}` },
+                        const swalWithBootstrapButtons = Swal.mixin({
+                          customClass: {
+                            confirmButton: "btn btn-success",
+                            cancelButton: "btn btn-danger",
+                          },
+                          buttonsStyling: false,
                         });
-                        for(let d=0;d<docs.length;d++)
-                        {
-                          if(doc._id===docs[d]._id)
-                          {
 
-                            SetDelete(docs.splice(d,1))
-                          }
-                        }
-                        
+                        swalWithBootstrapButtons
+                          .fire({
+                            title: "Are you sure?",
+                            text: "You won't be able to Delete this!",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonText: "Yes, delete it!",
+                            cancelButtonText: "No, cancel!",
+                            reverseButtons: true,
+                          })
+                          .then((result) => {
+                            if (result.isConfirmed) {
+                              axios.delete(`/doctors/${doc._id}`, {
+                                headers: { Authorization: `Bearer ${token}` },
+                              });
+                              for (let d = 0; d < docs.length; d++) {
+                                if (doc._id === docs[d]._id) {
+                                  SetDelete(docs.splice(d, 1));
+                                }
+                              }
+
+                              swalWithBootstrapButtons.fire(
+                                "Deleted!",
+                                "Doctor has been deleted.",
+                                "success"
+                              );
+                            } else if (
+                              result.dismiss === Swal.DismissReason.cancel
+                            ) {
+                              swalWithBootstrapButtons.fire(
+                                "Cancelled",
+                                "Cancelled :)",
+                                "error"
+                              );
+                            }
+                          });
                       }}
                     >
                       <FaTrash /> Delete
@@ -109,9 +154,8 @@ const AllDoc = () => {
           ))}
         </Row>
       </Container>
+    </>
+  );
+};
 
-        </>
-      );
-    };
-    
-    export default AllDoc;
+export default AllDoc;
