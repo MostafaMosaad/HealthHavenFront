@@ -1,8 +1,6 @@
 import style from "./Hospitals.module.css";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Container, Row } from "react-bootstrap";
-
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -81,36 +79,36 @@ function Hospitals() {
             </h4>
           </Row>
           <Row>
-          <Swiper
-  slidesPerView={3}
-  spaceBetween={40}
-  freeMode={true}
-  autoplay={{ delay: 3000 }}
-  pagination={{ clickable: true }}
-  navigation
-  breakpoints={{
-   200:{
-    slidesPerView:1,
-    spaceBetween:20
-   },
-    480: {
-      slidesPerView: 2,
-      spaceBetween: 30
-    },
-    640: {
-      slidesPerView: 3,
-      spaceBetween: 40
-    }
-  }}
->
-  {slides.map((hospital) => (
-    <SwiperSlide key={hospital.alt}>
-      <a href={hospital.link}>
-        <img src={hospital.image} alt={hospital.alt} />
-      </a>
-    </SwiperSlide>
-  ))}
-</Swiper>
+            <Swiper
+              slidesPerView={3}
+              spaceBetween={40}
+              freeMode={true}
+              autoplay={{ delay: 3000 }}
+              pagination={{ clickable: true }}
+              navigation
+              breakpoints={{
+                200: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 30,
+                },
+                640: {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+              }}
+            >
+              {slides.map((hospital) => (
+                <SwiperSlide key={hospital.alt}>
+                  <a href={hospital.link}>
+                    <img src={hospital.image} alt={hospital.alt} />
+                  </a>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </Row>
         </Row>
       </Container>
