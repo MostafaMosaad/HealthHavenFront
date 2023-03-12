@@ -80,7 +80,7 @@ src="/Imges/hospitals.jpg"
         </Carousel.Item>
       </Carousel>
       <div style={{ textAlign: "center", marginTop: "3rem" }}>
-        <span style={{ textAlign: "left", fontFamily: "'Noto Sans', sans-serif", color: "rgba(32,21,79,255)", fontSize: "20pt" }}><i className="fa-solid fa-calendar-plus"></i> Book a doctor </span>
+        <span style={{ textAlign: "left", fontFamily: "'Noto Sans', sans-serif", color: "rgba(32,21,79,255)", fontSize: "20pt" }}><i className="fa-solid fa-calendar-plus"></i></span>
         <select id="selectOpt" style={{ marginLeft: "3rem" }}
           name="Category"
           value={category}
