@@ -38,8 +38,8 @@ const Admin = () => {
       ];
       const data2 = [
         { x: 'Professor', y: numProf },
-        { x: 'Lecturer', y: numLec },
-        { x: 'Consultant', y: numCons },
+        { x: 'Consultant', y: numLec },
+        { x: 'Lecturer', y: numCons },
         { x: 'Specialist', y: numSpec },
       ];
       
@@ -178,9 +178,9 @@ const Admin = () => {
             switch(datum.x) {
               case 'Professor':
                 return 'green';
-              case 'Lecturer':
-                return 'yellow';
               case 'Consultant':
+                return 'yellow';
+              case 'Lecturer':
                 return 'orange';
               case 'Specialist':
                 return 'brown';
