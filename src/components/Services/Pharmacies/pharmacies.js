@@ -2,14 +2,16 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
+import style from"./pharmacies.module.css";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { Container, Row } from "react-bootstrap";
 
 // import required modules
-import { Pagination, FreeMode,Navigation } from "swiper";
-import style from"./pharmacies.module.css";
+import  SwiperCore,{ Pagination, FreeMode, Autoplay, Navigation } from "swiper";
+
+SwiperCore.use([Pagination, FreeMode, Autoplay, Navigation]);
 const pharmacie = [
     {
       id: 1,
@@ -69,12 +71,27 @@ export default function Pharmacies() {
           </Row>
           <Row>
             <Swiper
-              slidesPerView={5}
-              spaceBetween={50}
+              slidesPerView={4}
+              spaceBetween={60}
               freeMode={true}
-              modules={[Pagination, FreeMode, Navigation]}
+              modules={[Pagination, FreeMode,Autoplay, Navigation]}
+              Autoplay={{delay :3000}}
               pagination={{ clickable: true }}
               navigation
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 20
+                },
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 30
+                },
+                768: {
+                  slidesPerView: 4,
+                  spaceBetween: 40
+                }
+              }}
             >
               {pharmacie.map((pharmacie) => (
                 <SwiperSlide key={pharmacie.id}>
