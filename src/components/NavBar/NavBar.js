@@ -231,7 +231,7 @@ function NavBar() {
             <i className="fa-solid fa-user"></i>Log in
           </Link>
           <Link to="/signup" className="nav-links">
-            <i className="fa-solid fa-user"></i>Sign Up
+          <i className="fa fa-user-plus"></i>Sign Up
           </Link>
         </ul>
       </nav>
