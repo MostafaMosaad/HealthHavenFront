@@ -27,7 +27,7 @@
     margin-right: 1rem;
     text-align: left;
     position: absolute;
-    top: 40%;
+    top: 34%;
     left: 5%;
     color: wheat;
     margin-left: 2rem;
@@ -63,7 +63,6 @@
     .parID {
 
         font-size: 16px;
-        text-align: center;
+       
     }
 }
-
