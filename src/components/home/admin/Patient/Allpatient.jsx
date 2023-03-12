@@ -1,13 +1,14 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { RxUpdate } from "react-icons/rx";
 import { BiShow } from "react-icons/bi";
-import { Card, Button, Row, Col, Container } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Allpatient.css'
+import { Card, Button, Row, Col, Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Allpatient.css";
+const Swal = require('sweetalert2')
 
 const AllPatient = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const AllPatient = () => {
 
   const [data, setData] = useState();
   const API_URL = "/users/";
-  const [deletedoc,SetDelete]=useState()
+  const [deletedoc, SetDelete] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,26 +36,38 @@ const AllPatient = () => {
 
   return (
     <>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <Container className="my-5">
-     
-        <h1 className="admin-title mb-5 mt-2">All Patients ({patients.length})</h1>
+        <h1 className="admin-title mb-5 mt-2">
+          All Patients ({patients.length})
+        </h1>
         <Row xs={1} md={2} lg={3} className="g-4">
           {patients?.map((patient) => (
             <Col key={patient._id}>
               <Card className="h-100 patient-card">
                 <Card.Body>
                   <Card.Title>{patient.name}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">{patient.email}</Card.Subtitle>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {patient.email}
+                  </Card.Subtitle>
                   <Card.Text>
-                    <div className="mt-4 mb-2 "><strong>ID:</strong> {patient._id}</div>
-                    <div className="mb-2"><strong>Phone:</strong> {patient.phone}</div>
-                    <div className="mb-2"><strong>Birth Of Date:</strong> {patient.DateOfBirth}</div>
-                    <div className="mb-2"><strong>Missing Booking:</strong> {patient.missingBooking ? "Yes" : "No"}</div>
+                    <div className="mt-4 mb-2 ">
+                      <strong>ID:</strong> {patient._id}
+                    </div>
+                    <div className="mb-2">
+                      <strong>Phone:</strong> {patient.phone}
+                    </div>
+                    <div className="mb-2">
+                      <strong>Birth Of Date:</strong> {patient.DateOfBirth}
+                    </div>
+                    <div className="mb-2">
+                      <strong>Missing Booking:</strong>{" "}
+                      {patient.missingBooking ? "Yes" : "No"}
+                    </div>
                   </Card.Text>
                   <div className="card-buttons ">
                     <Button
@@ -79,17 +92,49 @@ const AllPatient = () => {
                       variant="danger"
                       className="d-block w-75 m-auto"
                       onClick={() => {
-                        axios.delete(`/users/${patient._id}`, {
-                          headers: { Authorization: `Bearer ${token}` },
+                        const swalWithBootstrapButtons = Swal.mixin({
+                          customClass: {
+                            confirmButton: "btn btn-success",
+                            cancelButton: "btn btn-danger",
+                          },
+                          buttonsStyling: false,
                         });
-                        for(let d=0;d<patients.length;d++)
-                        {
-                          if(patient._id===patients[d]._id)
-                          {
 
-                            SetDelete(patients.splice(d,1))
-                          }
-                        }
+                        swalWithBootstrapButtons
+                          .fire({
+                            title: "Are you sure?",
+                            text: "You won't be able to Delete this!",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonText: "Yes, delete it!",
+                            cancelButtonText: "No, cancel!",
+                            reverseButtons: true,
+                          })
+                          .then((result) => {
+                            if (result.isConfirmed) {
+                              axios.delete(`/users/${patient._id}`, {
+                                headers: { Authorization: `Bearer ${token}` },
+                              });
+                              for (let d = 0; d < patients.length; d++) {
+                                if (patient._id === patients[d]._id) {
+                                  SetDelete(patients.splice(d, 1));
+                                }
+                              }
+                              swalWithBootstrapButtons.fire(
+                                "Deleted!",
+                                "Your Patient has been deleted.",
+                                "success"
+                              );
+                            } else if (
+                              result.dismiss === Swal.DismissReason.cancel
+                            ) {
+                              swalWithBootstrapButtons.fire(
+                                "Cancelled",
+                                "Cancelled :)",
+                                "error"
+                              );
+                            }
+                          });
                       }}
                     >
                       <FaTrash /> Delete
