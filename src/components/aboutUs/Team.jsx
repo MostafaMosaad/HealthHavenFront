@@ -39,15 +39,26 @@ function Team() {
     <div className={style["DivCard"]}>
     <div>
       <h2 className={style["cardTitle"]}>Meet The Team</h2>
-      <Swiper
+    <Swiper
         slidesPerView={5}
         spaceBetween={50}
         freeMode={true}
         modules={[Pagination, FreeMode, Autoplay, Navigation]}
-        pagination={{ clickable: true }}
-        navigation={{
-          prevEl: ".swiper-button-prev",
-          nextEl: ".swiper-button-next",
+        autoplay={{delay:3000}}
+        navigation
+        breakpoints={{
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          480: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          },
+          768: {
+            slidesPerView: 5,
+            spaceBetween: 40
+          }
         }}
         className="mySwiper"
       >
