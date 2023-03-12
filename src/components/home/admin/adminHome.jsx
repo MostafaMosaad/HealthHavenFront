@@ -176,13 +176,13 @@ const Admin = () => {
         data: {
           fill: ({ datum }) => {
             switch(datum.x) {
-              case 'prof':
+              case 'Professor':
                 return 'green';
-              case 'lec':
+              case 'Lecturer':
                 return 'yellow';
-              case 'cons':
+              case 'Consultant':
                 return 'orange';
-              case 'spec':
+              case 'Specialist':
                 return 'brown';
               default:
                 return 'gray';
