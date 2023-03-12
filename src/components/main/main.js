@@ -99,21 +99,29 @@ src="/Imges/hospitals.jpg"
 
         </select>
       </div>
-      <Swiper style={{ marginTop: "8rem", paddingLeft: "2rem", paddingRight: "2rem" }}
+ <Swiper style={{ marginTop: "8rem", paddingLeft: "2rem", paddingRight: "2rem" }}
         slidesPerView={3}
         spaceBetween={50}
         freeMode={true}
         modules={[Pagination, FreeMode, Autoplay, Navigation]}
-        autoplay={{ delay: 5000 }}
-        pagination={{
-          clickable: true,
-          renderBullet: function (index, className) {
-            return '<span class="' + className + ' my-bullet">' +  '</span>';
-          }
-        }}
+        autoplay={{ delay: 3000 }}
         navigation={{
           prevEl: ".swiper-button-prev",
           nextEl: ".swiper-button-next",
+        }}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 40
+          }
         }}
         className="mySwiper"
       >
