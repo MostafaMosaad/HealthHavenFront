@@ -103,11 +103,11 @@ const AllPatient = () => {
                         swalWithBootstrapButtons
                           .fire({
                             title: "Are you sure?",
-                            text: "You won't be able to Delete this!",
+
                             icon: "warning",
                             showCancelButton: true,
-                            confirmButtonText: "Yes, delete it!",
-                            cancelButtonText: "No, cancel!",
+                            confirmButtonText: "Yes",
+                            cancelButtonText: "No",
                             reverseButtons: true,
                           })
                           .then((result) => {
