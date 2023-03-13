@@ -31,6 +31,7 @@ function Bookings() {
     fetchData();
   }, [token]);
   const userBookings = data.bookings || [];
+  
   return (
     <>
       {userBookings?.map((doctorData) => {
@@ -68,7 +69,9 @@ function Bookings() {
                 </span>{" "}
                 {doctorData.time}
               </div>
+              
               {doctorData.date !== formattedToday && <StarRating DoctorsId={doctorData.id}></StarRating>
+              
               }
               {formattedToday === doctorData.date && (
                 <Button
