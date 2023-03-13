@@ -60,7 +60,7 @@ function NavBar() {
     setClicked(!clicked);
   };
   useEffect ( ()=>{
-let navclose = (e)=›{
+let navclose = (e)=>{
 if (e.target){
 setClicked(false);
 }}
