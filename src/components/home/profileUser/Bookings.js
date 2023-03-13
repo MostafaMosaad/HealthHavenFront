@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import AvergeRating from '../../Rating/AvarageRating';
+import StarRating from "../../Rating/RatingStar";
 import { Button } from "react-bootstrap";
 const Swal = require('sweetalert2')
 
@@ -68,7 +68,7 @@ function Bookings() {
                 </span>{" "}
                 {doctorData.time}
               </div>
-              {doctorData.date !== formattedToday && <AvergeRating DoctorsId={doctorData.id}></AvergeRating>
+              {doctorData.date !== formattedToday && <StarRating DoctorsId={doctorData.id}></StarRating>
               }
 
               {formattedToday === doctorData.date && (
