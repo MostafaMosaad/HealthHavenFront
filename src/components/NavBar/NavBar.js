@@ -59,13 +59,16 @@ function NavBar() {
   const handleClick = () => {
     setClicked(!clicked);
   };
-  useEffect ( ()=>{
-let navclose = (e)=>{
-if (e.target){
-setClicked(false);
-}}
-document. addEvent Listener ("mousedown", navclose);
-});
+  
+  useEffect (()=>{
+    let navclose = (e)=>{
+      if (e.target){
+        setClicked(false);
+      }
+    }
+    document.addEventListener ("mousedown", navclose);
+  });
+
   if (Logged) {
     return (
       <nav className="NavbarItems">
