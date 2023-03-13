@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import StarRating from "./../../Rating/RatingStar";
+import StarRating from "../../Rating/RatingStar";
 import { Button } from "react-bootstrap";
 const Swal = require('sweetalert2')
 
