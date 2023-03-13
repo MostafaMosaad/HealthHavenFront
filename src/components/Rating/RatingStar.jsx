@@ -12,12 +12,18 @@ const StarRating = (props) => {
         setHover(rating)
     }
         let token=localStorage.getItem("userToken");
-   useEffect(() => {
-  if (rating) {
-    axios.post(`/rateDoctor`, { rating, Doctors: DoctorsId }, { headers: { Authorization: `Bearer ${token}` } })
-      .then();
-  }
-}, [rating, DoctorsId, token]);
+        useEffect(() => {
+            if(rating)
+            {
+            axios.post(`/rateDoctor`,
+            {rating,Doctors:DoctorsId},
+            {
+              headers:{
+                Authorization:`Bearer ${token}`
+              }
+            })
+              .then()
+          }},[rating,DoctorsId]);
     return (
       <div className="star-rating" >
         {
