@@ -68,47 +68,47 @@ function Bookings() {
                 </span>{" "}
                 {doctorData.time}
               </div>
-              {formattedToday != doctorData.date && (
-                <StarRating DoctorsId={doctorData.id}></StarRating>
-              )}
-
-              {formattedToday === doctorData.date && (
-                <Button
-                  onClick={() => {
-                    Swal.fire({
-                      title: "Do you want to Cancel Reservaion?",
-                      showDenyButton: true,
-                      // showCancelButton: true,
-                      confirmButtonText: "Yes",
-                      denyButtonText: `No`,
-                    }).then((result) => {
-                      if (result.isConfirmed) {
-                        const Cancel = async () => {
-                          await axios.patch(
-                            "/users/cancel",
-                            {
-                              doctor: doctorData.id,
-                            },
-                            {
-                              headers: { Authorization: `Bearer ${token}` },
-                            }
-                          );
-                        };
-
-                        Cancel();
-                        for (let d = 0; d < userBookings.length; d++) {
-                          if (doctorData.id === userBookings[d].id) {
-                            cancelBook(userBookings.splice(d, 1));
-                          }
+              {formattedToday !== doctorData.date 
+    ? <StarRating DoctorsId={doctorData.id}></StarRating> 
+    : (
+        <Button
+            onClick={() => {
+                Swal.fire({
+                  title: "Do you want to Cancel Reservaion?",
+                  showDenyButton: true,
+                  // showCancelButton: true,
+                  confirmButtonText: "Yes",
+                  denyButtonText: `No`,
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    const Cancel = async () => {
+                      await axios.patch(
+                        "/users/cancel",
+                        {
+                          doctor: doctorData.id,
+                        },
+                        {
+                          headers: { Authorization: `Bearer ${token}` },
                         }
-                        Swal.fire("Cancelled!", "", "success");
+                      );
+                    };
+
+                    Cancel();
+                    for (let d = 0; d < userBookings.length; d++) {
+                      if (doctorData.id === userBookings[d].id) {
+                        cancelBook(userBookings.splice(d, 1));
                       }
-                    });
-                  }}
-                >
-                  {" "}
-                  Cancel Book
-                </Button>
+                    }
+                    Swal.fire("Cancelled!", "", "success");
+                  }
+                });
+              }}
+        >
+          {" "}
+          Cancel Book
+        </Button>
+    )
+}
               )}
             </div>
           </div>
