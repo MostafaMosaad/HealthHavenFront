@@ -73,7 +73,7 @@ function Bookings() {
 <StarRating DoctorsId={doctorData.id}></StarRating>
 
               
-              }
+              
               {formattedToday === doctorData.date && (
                 <Button
                   onClick={() => {
