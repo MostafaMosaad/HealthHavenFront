@@ -68,8 +68,7 @@ function Bookings() {
                 </span>{" "}
                 {doctorData.time}
               </div>
-              {true && (
-                <StarRating DoctorsId={doctorData.id}></StarRating>
+              {doctorData.date !== formattedToday && <StarRating DoctorsId={doctorData.id}></StarRating>
               )}
 
               {formattedToday === doctorData.date && (
