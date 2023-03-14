@@ -72,7 +72,7 @@ function NavBar() {
   if (Logged) {
     return (
       <nav className="NavbarItems">
-        <h1 className="navbar-logo"> Health Haven</h1>
+        <Link to="/"><h1 className="navbar-logo"> Health Haven</h1></Link>
         <div className="menu-icons" onClick={handleClick}>
           <i className={clicked ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
         </div>
@@ -222,7 +222,7 @@ function NavBar() {
   } else {
     return (
       <nav className="NavbarItems">
-        <h1 className="navbar-logo"> Health Haven</h1>
+        <Link to="/"><h1 className="navbar-logo"> Health Haven</h1></Link>
         <div className="menu-icons" onClick={handleClick}>
           <i className={clicked ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
         </div>
