@@ -30,7 +30,7 @@ function PatientData() {
         <br key={index} />
       ))}
       {userHistory?.map((doctor) => (
-        <div className="card " style={{ width: " 27rem" }}>
+<div className="card " style={{ width: " 30rem" , marginLeft:"2rem",marginBottom:"2rem"}}>
           <img
             src={process.env.PUBLIC_URL + "/Imges/patient.jpg"}
             className="card-img-top"
