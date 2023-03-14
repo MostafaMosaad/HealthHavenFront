@@ -46,6 +46,7 @@ function PatientData() {
           <th>State</th>
           <th>Labs</th>
           <th>Pharamacy</th>
+          <th>Date</th>
         </tr>
       </thead>
             {doctor.medical?.map((z, index) => {
@@ -58,6 +59,9 @@ function PatientData() {
                       <td>{x.Labs}</td>
                  
                       <td>{x.Pharmacies}</td>
+
+                      <td>{x.date}</td>
+
                   </tbody>
                  
                  );
