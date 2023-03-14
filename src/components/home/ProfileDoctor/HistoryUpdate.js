@@ -49,7 +49,7 @@ const History_Update = () => {
             <h2 className="text-center mb-4">Update Patient</h2>
             <Form onSubmit={handleSubmit} border="primary" className="p-3">
               <Form.Group as={Row} className="m-3">
-                <Form.Label column sm={5}>patient state</Form.Label>
+                <Form.Label column sm={5}>Patient State</Form.Label>
                 <Col sm={7}>
                   <Form.Control type="text" name="state" />
                 </Col>
