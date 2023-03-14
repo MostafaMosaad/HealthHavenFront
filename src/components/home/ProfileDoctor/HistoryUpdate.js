@@ -2,11 +2,13 @@ import {  useNavigate, useParams } from "react-router-dom";
 import { useState } from 'react';
 import axios from "axios";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import  Alert  from 'react-bootstrap/Alert';
 
 const History_Update = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [token] = useState(localStorage.getItem("userToken"));
+  const [success, setSuccess] = useState();
 
   const API_URL = `/users/${id}`;
 
@@ -29,6 +31,10 @@ const History_Update = () => {
       );
     };
     fetchData();
+    setSuccess("successfully updated ✅ 🙂");
+    setTimeout(()=>{
+      navigate("/homeDoctor/MyProfile/PatientData")
+    },2000)
   };
   const handleBackClick = () => {
     navigate(-1);
@@ -71,6 +77,7 @@ const History_Update = () => {
                 <Button variant="outline-primary" onClick={handleBackClick} className="mx-2 mx-md-4">Back</Button>
               </div>
             </Form>
+      {success && <Alert variant={"success"}>{success}</Alert>}
           </Col>
         </Row>
       </Container>
