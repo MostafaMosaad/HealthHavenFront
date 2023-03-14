@@ -44,13 +44,13 @@ export default function Login() {
               res.data.dataUser === "User"
             ) {
               authCtx.login(res.data.token, "user");
-              navigate("/homeUser/MyProfile");
+              navigate("/");
             } else if (res.data.dataUser === "Admin") {
               authCtx.login(res.data.token, "admin");
               navigate("/admin");
             } else if (res.data.dataUser === "Doctor") {
               authCtx.login(res.data.token, "doctor");
-              navigate("/homeDoctor/MyProfile");
+              navigate("/homeDoctor/MyProfile/PatientData");
             }
         })
         .catch((err) => {
