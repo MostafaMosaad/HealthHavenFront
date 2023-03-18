@@ -1,0 +1,14 @@
+.news-tips {
+  background-color:#20154f;
+  color: #ddd;
+  padding: 0.1rem;
+  transition: font-size 0.5s ease;
+}
+.RowStyle{
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+.CardBodyStyle{
+    padding: 0;
+}

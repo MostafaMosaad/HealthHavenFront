@@ -1,0 +1,33 @@
+.star-rating {
+    font-size: 1.5rem;
+  }
+  
+  #NormalRateID {
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+  }
+  
+  button:hover {
+    transform: scale(1.2);
+
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  .star {
+    color: #ffb900;
+  }
+  
+  .on .star {
+    color: #ff8c00;
+  }
+  
+  .off .star {
+    color: #ddd;
+  }
+  

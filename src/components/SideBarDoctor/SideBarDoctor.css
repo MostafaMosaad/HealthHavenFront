@@ -1,0 +1,14 @@
+#listitemsDoc{
+    list-style: none;
+     text-align: left;
+}
+#listitemsDoc :hover{
+    color:  red;
+
+}
+#realNavBarDoc{
+    padding: 0.5rem 0;
+    background-color: #24326c;
+    border-radius: 13px;
+    margin-top: 15rem;
+}

@@ -1,0 +1,58 @@
+body{
+    background-color:white;
+}
+#userForm {
+  text-align: left;
+  background-color: white;
+  margin-top: 9rem;
+}
+.labels {
+  display: inline-block;
+  clear: left;
+  margin-left: 2rem;
+  margin-top: 1.2rem;
+  font-size: 12pt;
+  color:#20154f ;
+  font-weight: 600;
+  width: 25%;
+}
+.labels:hover{
+    color:  red;
+    cursor: pointer;
+}
+.saveBtn{
+  background-color: #20154f;
+  width: 100%;
+ color: white;
+ padding: 14px 20px;
+ margin: 8px 0;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+ font-style: italic;
+ font-size: medium;
+}
+.saveBtn:hover{
+    background-color: #fe4c40;
+}
+.formInput {
+  text-align: center;
+  margin-left: 2rem;
+  color:  #20154f;
+  font-style: italic;
+  width: 100%;
+  padding: 10px 20px;
+  margin: 10px 10px;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #f2f2f2;
+}
+.formInput:focus {
+  background-color: #c5dcf8;
+  color:#000000;
+ }
+ #divBtn{
+  text-align: center;
+ }
