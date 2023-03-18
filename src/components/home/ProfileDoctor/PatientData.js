@@ -57,7 +57,7 @@ useEffect(() => {
          <img  id="welcomeIMG" src={"/Imges/Welcome Doctor.png"} style={{paddingBottom:"4rem"}}></img>
          <div>
            <h1   id="WelcomeBack" style={{maxWidth:"30rem" , marginTop:"2rem",color:"rgb(209,71,25)"}}>  {i18n.t("Welcome back,")}</h1>
-           <h2   id="Num" style={{paddingTop:"1rem",color:"#2d2d4f" }}>{i18n.t("the number of examination is")}  ({userHistory.length})</h2>
+           <h2   id="Num" style={{paddingTop:"1rem",color:"#2d2d4f" }}>{i18n.t("the number of examination is")}  {userHistory.length}</h2>
           </div>
         </div>
        
