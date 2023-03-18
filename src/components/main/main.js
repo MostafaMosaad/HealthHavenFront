@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useContext} from 'react';
 import Carousel from "react-bootstrap/Carousel";
 import "./main.css";
 import axios from 'axios';
@@ -9,11 +9,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, FreeMode, Autoplay, Navigation } from "swiper";
 import AvergeRating from './../Rating/AvarageRating';
 import { useTranslation } from 'react-i18next';
+import { authContext } from "../../context/loginContext";
 
 
 const API_URL = '/doctors';
 
 const Main = () => {
+  const isAuthen = useContext(authContext);
+  const Logged = isAuthen.isLoggend;
+
   const { i18n } = useTranslation();
   const [doctors, setDoctors] = useState([]);
   const [filter, setfilter] = useState([]);
@@ -142,8 +146,11 @@ src="/Imges/hospitals.jpg"
                     <div className="mb-2"><strong>{i18n.t("Major")}:</strong>{i18n.t(`${doc.major}`)}</div>
                     <div className="mb-2"><strong>{i18n.t("Category")}:</strong>{i18n.t(`${doc.category}`)}</div>
                     <AvergeRating DoctorsId={doc._id}></AvergeRating>
-                    <Link to="/login" className="nav-links">
-                      <i className="fa-solid fa-user"></i>{i18n.t("Book")}</Link>
+                   
+                      {Logged? <Link to="/homeUser/MyProfile/Doctors" className="nav-links">
+                      <i className="fa-solid fa-user"></i>{i18n.t("Book")}</Link>: 
+                      <Link to="/login" className="nav-links">
+                      <i className="fa-solid fa-user"></i>{i18n.t("Book")}</Link>}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -170,4 +177,3 @@ src="/Imges/hospitals.jpg"
   );
 };
 export default Main;
-
