@@ -50,35 +50,35 @@ const Patient_Update = () => {
       <Container className="my-5">
         <Row>
           <Col>
-            <h2 className="text-center mb-4">Update Patient</h2>
+            <h2 className="text-center mb-4">{i18n.t('Update Patient')}</h2>
             <Form onSubmit={handleSubmit} border="primary" className="p-3">
               <Form.Group as={Row} className="m-3">
-                <Form.Label column sm={5}>patient state</Form.Label>
+                <Form.Label column sm={5}> {i18n.t('State')}</Form.Label>
                 <Col sm={7}>
                   <Form.Control type="text" name="state" />
                 </Col>
               </Form.Group>
               <Form.Group as={Row} className="m-3">
-                <Form.Label column sm={5}>Labs</Form.Label>
+                <Form.Label column sm={5}>{i18n.t('Labs')}</Form.Label>
                 <Col sm={7}>
                   <Form.Control type="text" name="labs" />
                 </Col>
               </Form.Group>
               <Form.Group as={Row} className="m-3">
-                <Form.Label column sm={5}>Pharamacies</Form.Label>
+                <Form.Label column sm={5}>{i18n.t("prescription drugs")}</Form.Label>
                 <Col sm={7}>
                   <Form.Control type="text" name="pharamcy" />
                 </Col>
               </Form.Group>
               <Form.Group as={Row} className="m-3">
-                <Form.Label column sm={5}>Missed Bookings</Form.Label>
+                <Form.Label column sm={5}>{i18n.t("Missed Bookings")}</Form.Label>
                 <Col sm={7}>
                   <Form.Control type="text" name="missed" />
                 </Col>
               </Form.Group>
               <div className="d-flex justify-content-center mt-4">
-                <Button variant="outline-success" type="submit" className="mx-2 mx-md-4">Update</Button>
-                <Button variant="outline-primary" onClick={handleBackClick} className="mx-2 mx-md-4">Back</Button>
+                <Button variant="outline-success" type="submit" className="mx-2 mx-md-4">{i18n.t('Update')}</Button>
+                <Button variant="outline-primary" onClick={handleBackClick} className="mx-2 mx-md-4">{i18n.t('Back')}</Button>
               </div>
             </Form>
           </Col>
