@@ -73,7 +73,7 @@ const AllDoc = () => {
                       <strong style={{color:"red"}}>{t('Category')}</strong> {`${t(doc.category)}`}
                     </div>
                     <div className="mb-2">
-                      <strong style={{color:"red"}}>{t('isVerified')}</strong> {doc.isVerifired.toString()}
+                      <strong style={{color:"red"}}>{t('isVerified')}</strong> {`${t(doc.isVerifired.toString())}`}
                     </div>
                     <div className="mb-2">
                       <strong style={{color:"red"}}>{t('appointments')}</strong> {doc.appointments.length}
