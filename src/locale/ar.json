@@ -169,6 +169,10 @@
   "Brain": "مخ",
   "Update Patient":"تعديل بيانات المريض",
   "true":"نعم",
-  "false":"لا"
+  "false":"لا",
+  "Yesterday":"أمس",
+  "Tomorrow":"الغد",
+  "Day After":"بعد الغد",
+  "Day Before":"أول أمس"
 
 }
