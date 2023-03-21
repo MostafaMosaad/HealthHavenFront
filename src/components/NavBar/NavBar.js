@@ -72,7 +72,6 @@ function NavBar() {
           setName(
             response.data.data.user.name || response.data.data.doctor.name
           );
-          console.log(`Name: ${name}`);
         })
         .catch((error) => {
           console.error(error);
@@ -248,7 +247,7 @@ function NavBar() {
             </Dropdown>
           )}
           <div>
-           <button  className="nav-links"onClick={handleLanguage} style={{background:"none",border:"none",color:"#24326c"}}>{isArabic ? <i class="fa-sharp fa-solid fa-earth-americas"></i>: <i class="fa-sharp fa-solid fa-earth-americas"></i>}  </button>
+           <button  className="nav-links"onClick={handleLanguage} style={{background:"none",border:"none",color:"#24326c"}}>{isArabic ? <i className="fa-sharp fa-solid fa-earth-americas"></i>: <i className="fa-sharp fa-solid fa-earth-americas"></i>}  </button>
           </div>
         </ul>
       </nav>
@@ -277,7 +276,7 @@ function NavBar() {
           <Link to="/signup" className="nav-links">
           <i className="fa fa-user-plus"></i>{t("SignUp")}
           </Link>
-          <button  className="nav-links"onClick={handleLanguage} style={{background:"none",border:"none",color:"#24326c"}}>{isArabic ? <i className="fa-sharp fa-solid fa-earth-americas"></i>: <i class="fa-sharp fa-solid fa-earth-americas"></i>}  </button>
+          <button  className="nav-links"onClick={handleLanguage} style={{background:"none",border:"none",color:"#24326c"}}>{isArabic ? <i className="fa-sharp fa-solid fa-earth-americas"></i>: <i className="fa-sharp fa-solid fa-earth-americas"></i>}  </button>
         </ul>
       </nav>
     );
