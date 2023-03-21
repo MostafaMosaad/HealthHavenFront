@@ -136,6 +136,11 @@
 "Reservation Time":"Reservation Time",
 "Cancel Book":"Cancel Book",
 "Nutritionist2": "Nut",
-"Heart2": "Heart"
+"Heart2": "Heart",
+"Today":"Today",
+"Yesterday":"Yesterday",
+"Tomorrow":"Tomorrow",
+"Day After":"Day After",
+"Day Before":"Day Before"
 
 }
