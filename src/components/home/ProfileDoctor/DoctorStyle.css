@@ -185,3 +185,14 @@
         margin-top: 2rem;
 }
  }
+
+ #filterDiv{
+    margin-top: -8rem;
+ }
+ #filterDiv2{
+    margin-top: -17rem;
+ }
+ @media  screen and (max-width: 470px) {
+    #filterDiv2{
+        margin-top: -10rem;
+     }}

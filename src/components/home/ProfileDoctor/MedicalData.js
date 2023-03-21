@@ -51,16 +51,14 @@ function MedicalData() {
         <br key={index} />
       ))}
           <div className="m-5 " >
-         
-<button
-  disabled={formattedToday <date}
+          {formattedToday == date&&<button
   style={{background:"#20154f",color:"white"}}
   onClick={() => {
     nav(`/updatehistorybydoc/${id}`);
   }}
 >
   {i18n.t("Update medical history")}
-</button>
+</button>}
 </div>
 
       {userHistory?.map(
@@ -91,6 +89,7 @@ function MedicalData() {
                             style={{
                               backgroundColor: "#2d2d4f",
                               color: "white",
+                              width:".5%"
                             }}
                           >
                             {++index}

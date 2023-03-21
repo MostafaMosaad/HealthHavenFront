@@ -1,7 +1,6 @@
 import {  useNavigate, useParams } from "react-router-dom";
 import { useState, } from 'react';
 import axios from "axios";
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import './DoctorStyle.css';
@@ -111,8 +110,10 @@ const handleChange = useCallback((e) => {
             <input type="text" className="formInputUp" name="missed" />
         </div>
         <div className="d-flex justify-content-around">
-        <div style={{textAlign:"center"}}> <button type="submit" className="saveBtnUp">{i18n.t("Update")}</button></div>
-         <div style={{textAlign:"center"}}><button type="submit" className="saveBtnUp"  onClick={handleBackClick}>{i18n.t("Back")}</button></div>
+  <button className="btn btn-success m-3" type="submit">{i18n.t("Update")}</button>
+  <button className="btn btn-success m-3" onClick={() => handleBackClick}>{i18n.t("Back")}</button>
+  
+       
         </div>
         <div  style={{textAlign:"center"}}>
         <input type = "datetime-local"   

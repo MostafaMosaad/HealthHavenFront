@@ -73,12 +73,12 @@ function Bookings() {
               </table>
               
               {formattedToday == doctorData.date
-              //  &&hh == doctorData.time.split(":")[0]
                 && (
                   <StarRating DoctorsId={doctorData.id}></StarRating>
                 )}
+                
+                  {formattedToday < doctorData.date&&
                   <button 
-                  disabled={formattedToday >= doctorData.date}
                   style={{marginTop:"1rem",backgroundColor:"#20154f",color:"white",borderRadius:"0.5rem"}}
                     onClick={() => {
                       Swal.fire({
@@ -112,7 +112,8 @@ function Bookings() {
                     }}
                   >
                    {i18n.t("Cancel Book")}
-                  </button>
+                  </button>}
+                  
             </div>
           </div>
 

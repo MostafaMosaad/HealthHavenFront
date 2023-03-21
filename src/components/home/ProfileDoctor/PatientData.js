@@ -73,7 +73,7 @@ function PatientData() {
       {[...Array(12)].map((_, index) => (
   <br key={index} />
 ))}
-<div className="header w-100 "> 
+<div className="header w-100 " id="filterDiv"> 
   <button className="btn btn-success m-3" onClick={() => setDateFilter("all")}>{i18n.t("All")}</button>
   <button className="btn btn-success m-3" onClick={() => setDateFilter("daybefore")}>{i18n.t("Day Before")}</button>
   <button className="btn btn-success m-3" onClick={() => setDateFilter("yesterday")}>{i18n.t("Yesterday")}</button>
@@ -82,7 +82,7 @@ function PatientData() {
   <button className="btn btn-success m-3" onClick={() => setDateFilter("dayafter")}>{i18n.t("Day After")}</button>
 </div>
 
-<div className="d-flex flex-wrap justify-content-center">
+<div className="d-flex flex-wrap justify-content-center" id="filterDiv2">
 
   {userHistory?.filter((appointment) => {
     const appointmentDate = new Date(appointment.date);
