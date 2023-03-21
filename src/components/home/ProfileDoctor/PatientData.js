@@ -112,7 +112,7 @@ function PatientData() {
         }}>
           <h5 className="card-title m-3">{doctor.user}</h5>
         </button>
-        {doctor.again && <h5 className="card-title m-3"> Consultation </h5>}
+        {doctor.again && <h5 className="card-title m-3"> {i18n.t("Consultation")}</h5>}
         <div className="card-title">
           <table id="DocReservTable">
             <tbody>
