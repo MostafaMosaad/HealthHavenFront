@@ -1,0 +1,204 @@
+#DocReservTable{
+    margin:  0 auto;
+}
+.LeftSide{
+    color: rgb(209,71,25);
+    text-align: left;
+    padding-top: 0.5rem;
+
+}
+.RightSide{
+    text-align: left;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    color: #2d2d4f;
+}
+#userNameBuuton{
+  color: #2d2d4f;
+    background: none;
+    border: none;
+    
+}
+#welcomeIMG{
+    width: 30%;
+    height: 70%;
+}
+#cont{
+    margin-top: 8rem;
+}
+#upForm{
+    text-align: left;
+    background-color: rgb(214, 213, 213);
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10rem;
+    border-radius: 1rem;
+
+}
+.labelsUp{
+    display: inline-block;
+    clear: left;
+    margin-left: 2rem;
+    margin-top: 1.2rem;
+    font-size: 12pt;
+    color:#20154f ;
+    font-weight: 600;
+    width: 25%;
+    font-style: italic;
+
+}
+.formInputUp{
+    text-align: center;
+    margin-left: 2rem;
+    color:  #20154f;
+    font-style: italic;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 10px;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid #20154f;
+    background-color: white;
+}
+.formInputUp:focus{
+    color:#000000;
+   }
+   .saveBtnUp{
+    background-color: #20154f;
+    width: 20%;
+   color: white;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-style: italic;
+   font-size: medium;
+   }
+   #DocReservTable{
+    margin:  0 auto;
+}
+.LeftSide{
+    color: rgb(209,71,25);
+    text-align: left;
+    padding-top: 0.5rem;
+
+}
+.RightSide{
+    text-align: left;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    color: #2d2d4f;
+}
+#userNameBuuton{
+  color: #2d2d4f;
+    background: none;
+    border: none;
+    
+}
+#welcomeIMG{
+    width: 30%;
+    height: 70%;
+}
+#cont{
+    margin-top: 8rem;
+}
+#upForm{
+    text-align: left;
+    background-color: rgb(214, 213, 213);
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10rem;
+    border-radius: 1rem;
+
+}
+.labelsUp{
+    display: inline-block;
+    clear: left;
+    margin-left: 2rem;
+    margin-top: 1.2rem;
+    font-size: 12pt;
+    color:#20154f ;
+    font-weight: 600;
+    width: 25%;
+    font-style: italic;
+
+}
+.formInputUp{
+    text-align: center;
+    margin-left: 2rem;
+    color:  #20154f;
+    font-style: italic;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 10px;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid #20154f;
+    background-color: white;
+}
+.trDoctor{
+    border: 1px solid gray;
+    border-left: none;
+    border-right:none ;
+    border-top: none;
+}
+.formInputUp:focus{
+    color:#000000;
+   }
+   .saveBtnUp{
+    background-color: #20154f;
+   color: white;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-style: italic;
+   font-size: medium;
+   }
+   @media only screen and (max-width: 685px) {
+    #welcomeIMG {
+        width: 80%;
+
+        height: 80%;
+    }
+    #WelcomeBack
+    {
+        margin-left: -2rem;
+    }
+    #Num
+    {
+        margin-left: -2rem;
+        margin-top: 2rem;
+}
+ }
+   @media only screen and (max-width: 685px) {
+    #welcomeIMG {
+        width: 80%;
+
+        height: 80%;
+    }
+    #WelcomeBack
+    {
+        margin-left: -2rem;
+    }
+    #Num
+    {
+        margin-left: -2rem;
+        margin-top: 2rem;
+}
+ }
+
+ #filterDiv{
+    margin-top: -8rem;
+ }
+ #filterDiv2{
+    margin-top: -17rem;
+ }
+ @media  screen and (max-width: 470px) {
+    #filterDiv2{
+        margin-top: -10rem;
+     }}

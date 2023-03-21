@@ -1,0 +1,17 @@
+
+.tabl{
+    margin: 0 auto;
+}
+.leftTD{
+    color: rgb(209,71,25);
+    text-align: left;
+}
+.RightTD{
+    text-align: left;
+}
+.trUser{
+    border: 1px solid gray;
+    border-left: none;
+    border-right:none ;
+    border-top: none;
+}
