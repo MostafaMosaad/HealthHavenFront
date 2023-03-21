@@ -1,0 +1,35 @@
+#selectOpt2,#selectime{
+    width: 75%;
+    height: 40px;
+     border-radius:15px ;
+     text-align:center;
+    appearance:none;
+    background-color: #20154f;
+    border: none;
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+   font-style: italic;
+   margin-top: 8rem;
+   
+  }
+  #selectime
+  {
+    width: 35%;
+    background-color: #40337d;
+    /* border-radius:8px ; */
+    margin-top: 3rem;
+  }
+ #selectDate
+{
+    width: 77%;
+    height: 40px;
+    border-radius:15px ;
+    text-align:center;
+    appearance:none;
+    background-color: #20154f;
+    border: none;
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+   font-style: italic;
+   margin-top: -8rem;
+}

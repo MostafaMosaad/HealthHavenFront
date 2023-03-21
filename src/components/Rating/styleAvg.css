@@ -1,0 +1,24 @@
+.star-rating {
+    font-size: 1.5rem;
+  }
+  
+#rateID{
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+  }
+  
+  .star {
+    color: #ffb900;
+  }
+  
+  .on .star {
+    color: #ff8c00;
+  }
+  
+  .off .star {
+    color: #ddd;
+  }
+  
