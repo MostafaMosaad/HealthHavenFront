@@ -13,7 +13,7 @@ export default function News() {
 const newsItems = [
   {
     imgSrc:
-      "https://heartstrokeprod.azureedge.net/-/media/images/articles/getty_1047798504_1920x1080.ashx?rev=10f9ef9ef9794e998b5cfe1bd3d60d85&bc=f7f7f7&w=1160&h=653&as=1&la=en&hash=D9C95AA0CDF0CD9503BE1E57B2542B8F",
+      "https://www.istockphoto.com/photo/healthy-food-for-lower-cholesterol-and-heart-care-shot-on-wooden-table-gm1279763992-378262118",
     title: i18n.t("Limit"),
     text: i18n.t("LimitCaption")
   },
